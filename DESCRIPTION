@@ -47,5 +47,9 @@ Imports:
     parallel,
     stats,
     utils
+Suggests:
+    bslib,
+    DT,
+    shiny
 URL: https://kusuri26.github.io/DiagProgMeta/, https://github.com/kusuri26/DiagProgMeta/
 BugReports: https://github.com/kusuri26/DiagProgMeta/issues
