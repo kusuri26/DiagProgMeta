@@ -142,11 +142,28 @@ plot(fit1, sroc.cols = c("black", "blue", "red"), add.study = TRUE)
 plot(fit1, p = c(1, 0.6), plot.ci = TRUE, sroc.cols = c("black", "red"))
 
 \donttest{
-## time-dependent results (see ?tsrocsa.lrt for fit2)
-## plot(fit2)                           # one plot per time point; press <Return> for the next
-## plot(fit2, time = 60)                # one time point
-## plot(fit2, overlay = TRUE)           # all time points in one panel (color: time, line type: p)
-## plot(fit2, overlay = TRUE, p = 0.8)  # all time points for one p
+## time-dependent results
+data(Ki67)
+Ki67_HR <- Ki67$HR
+Ki67_HR$lnHR     <- log(Ki67_HR$HR)
+Ki67_HR$lnHR.var <- ((log(Ki67_HR$ci.up) - log(Ki67_HR$ci.low)) / (2 * qnorm(0.975)))^2
+fit2 <- tsrocsa.lrt(
+  time.points = c(36, 60),
+  study.os = study,
+  time.os = t, n1.os = n1, n0.os = n0,
+  s1.os = s1, s0.os = s0,
+  data.os = Ki67$OS,
+  study.lnhr = study, lnhr = lnHR, var.lnHR = lnHR.var,
+  data.lnhr = Ki67_HR,
+  time.med = mct_mo, n1.med = n1, n0.med = n0,
+  s1.med = s1_mct, s0.med = s0_mct,
+  data.mt = Ki67$MT,
+  senp.p = c(1, 0.8)
+)
+plot(fit2, ask = FALSE)              # one plot per time point, no prompt
+plot(fit2, time = 60)                # one time point
+plot(fit2, overlay = TRUE)           # all time points in one panel (color: time, line type: p)
+plot(fit2, overlay = TRUE, p = 0.8)  # all time points for one p
 }
 
 }

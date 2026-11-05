@@ -1,6 +1,6 @@
 Package: DiagProgMeta
 Type: Package
-Title: Meta-Analysis of Diagnostic Test Accuracy and Prognostic Capacity with Sensitivity Analysis for Publication Bias
+Title: SROC Meta-Analysis with Publication Bias Sensitivity Analysis
 Version: 0.1.0
 Author: Ryota Kinugawa [aut, ctb], Kota Nakaike [aut, ctb], Yamato Hashimoto [aut, ctb], Yi Zhou [aut, cre] (<https://orcid.org/0000-0001-9254-3245>)
 Maintainer: Yi Zhou <zhouy@people.kobe-u.ac.jp>
@@ -31,7 +31,11 @@ Description: Provides methods for meta-analysis of diagnostic test accuracy
     operating characteristic (SROC) curve for diagnostic test accuracy and
     the time-dependent SROC curve for prognostic studies. It also provides
     likelihood-based sensitivity analyses to assess the potential impact of
-    publication bias on these curves.
+    publication bias on these curves.The methods are described in Hattori
+    and Zhou (2016) <doi:10.1002/sim.7029>, Reitsma et al. (2005)
+    <doi:10.1016/j.jclinepi.2005.02.022>, Zhou et al. (2023)
+    <doi:10.1002/sim.9643>, and Zhou et al. (2025)
+    <doi:10.1017/rsm.2025.14>.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true

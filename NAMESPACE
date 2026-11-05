@@ -13,7 +13,9 @@ export(default.parset.tsroc.pb)
 export(hattori.tsroc)
 export(reitsma.sroc)
 export(sauc)
+export(sroc)
 export(srocsa.t)
+export(tsroc)
 export(tsrocsa.lrt)
 importFrom(grDevices,
   adjustcolor,
