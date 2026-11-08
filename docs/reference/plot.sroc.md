@@ -182,10 +182,28 @@ plot(fit1, add.study = TRUE)                             # add the studies
 plot(fit1, add.study = TRUE, study.size = "precision")   # point size by precision
 
 
-if (FALSE) { # \dontrun{
-## fit2 <- hattori.tsroc(...)       # see ?hattori.tsroc
-plot(fit2)                          # one page per time point, <Return> for next
+## time-dependent SROC curves
+data(Ki67)
+Ki67_HR <- Ki67$HR
+Ki67_HR$lnHR     <- log(Ki67_HR$HR)
+Ki67_HR$lnHR.var <- ((log(Ki67_HR$ci.up) - log(Ki67_HR$ci.low)) / (2 * qnorm(0.975)))^2
+fit2 <- hattori.tsroc(
+  time.points = c(24, 36, 60),
+  study.os = study,
+  time.os = t, n1.os = n1, n0.os = n0,
+  s1.os = s1, s0.os = s0,
+  data.os = Ki67$OS,
+  study.lnhr = study, lnhr = lnHR, var.lnHR = lnHR.var,
+  data.lnhr = Ki67_HR,
+  time.med = mct_mo, n1.med = n1, n0.med = n0,
+  s1.med = s1_mct, s0.med = s0_mct,
+  data.mt = Ki67$MT
+)
+plot(fit2, ask = FALSE)             # one page per time point, no prompt
+
+
+
 plot(fit2, time = 36)               # a single time point
+
 plot(fit2, overlay = TRUE)          # all time points in one panel
-} # }
 ```

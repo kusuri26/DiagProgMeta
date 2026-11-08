@@ -28,8 +28,7 @@
   - [References](#references)
   - [License](#license)
 
-**Meta-analysis of diagnostic and prognostic studies: SROC curves and
-sensitivity analysis for publication bias**
+**Diagnostic and Prognostic Meta-Analysis with Sensitivity Analysis**
 
 `DiagProgMeta` is an R package for the meta-analysis of
 

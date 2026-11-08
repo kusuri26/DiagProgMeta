@@ -15,7 +15,7 @@ the summary sensitivity, specificity, and SAUC, and all the estimates (par.all).
 
     <a class="navbar-brand me-2" href="../index.html">DiagProgMeta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -154,8 +154,31 @@ The confidence level is <code>ci.level</code> used in the fitting function (0.95
 <span class="r-out co"><span class="r-pr">#&gt;</span> tau2  0.8261895 0.1167857  0.6262653 1.0899360</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rho  -0.4244263 0.2363535 -0.7690938 0.1114831</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">## for hattori.tsroc(), one element of s$fits for each time point:</span></span></span>
-<span class="r-in"><span><span class="co">## s &lt;- summary(fit2); s$fits[["t = 36"]]$coef</span></span></span>
+<span class="r-in"><span><span class="co">## for hattori.tsroc(), one element of s$fits for each time point</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Ki67</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">Ki67_HR</span> <span class="op">&lt;-</span> <span class="va">Ki67</span><span class="op">$</span><span class="va">HR</span></span></span>
+<span class="r-in"><span><span class="va">Ki67_HR</span><span class="op">$</span><span class="va">lnHR</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">Ki67_HR</span><span class="op">$</span><span class="va">HR</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">Ki67_HR</span><span class="op">$</span><span class="va">lnHR.var</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">Ki67_HR</span><span class="op">$</span><span class="va">ci.up</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">Ki67_HR</span><span class="op">$</span><span class="va">ci.low</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span></span></span>
+<span class="r-in"><span><span class="va">fit2</span> <span class="op">&lt;-</span> <span class="fu"><a href="hattori.tsroc.html">hattori.tsroc</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  time.points <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">24</span>, <span class="fl">36</span>, <span class="fl">60</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  study.os <span class="op">=</span> <span class="va">study</span>,</span></span>
+<span class="r-in"><span>  time.os <span class="op">=</span> <span class="va">t</span>, n1.os <span class="op">=</span> <span class="va">n1</span>, n0.os <span class="op">=</span> <span class="va">n0</span>,</span></span>
+<span class="r-in"><span>  s1.os <span class="op">=</span> <span class="va">s1</span>, s0.os <span class="op">=</span> <span class="va">s0</span>,</span></span>
+<span class="r-in"><span>  data.os <span class="op">=</span> <span class="va">Ki67</span><span class="op">$</span><span class="va">OS</span>,</span></span>
+<span class="r-in"><span>  study.lnhr <span class="op">=</span> <span class="va">study</span>, lnhr <span class="op">=</span> <span class="va">lnHR</span>, var.lnHR <span class="op">=</span> <span class="va">lnHR.var</span>,</span></span>
+<span class="r-in"><span>  data.lnhr <span class="op">=</span> <span class="va">Ki67_HR</span>,</span></span>
+<span class="r-in"><span>  time.med <span class="op">=</span> <span class="va">mct_mo</span>, n1.med <span class="op">=</span> <span class="va">n1</span>, n0.med <span class="op">=</span> <span class="va">n0</span>,</span></span>
+<span class="r-in"><span>  s1.med <span class="op">=</span> <span class="va">s1_mct</span>, s0.med <span class="op">=</span> <span class="va">s0_mct</span>,</span></span>
+<span class="r-in"><span>  data.mt <span class="op">=</span> <span class="va">Ki67</span><span class="op">$</span><span class="va">MT</span></span></span>
+<span class="r-in"><span><span class="op">)</span>   </span></span>
+<span class="r-in"><span><span class="va">s2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">s2</span><span class="op">$</span><span class="va">fits</span><span class="op">[[</span><span class="st">"t = 36"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">coef</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        Estimate         SE       lower       upper</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mu1   0.6731155 0.18530620  0.30992207 1.036309012</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mu2   0.2837232 0.11469250  0.05893001 0.508516337</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tau1  0.6556385 0.20886375  0.35115678 1.224130751</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tau2  0.5121485 0.09521945  0.35574533 0.737314255</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rho  -0.8772330 0.16089307 -0.99156170 0.004680657</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

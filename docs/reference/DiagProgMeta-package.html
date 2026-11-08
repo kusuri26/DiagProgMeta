@@ -16,7 +16,15 @@ Prognostic studies: the time-dependent SROC curve and SAUC, where the time-depen
   (Zhou et al., 2025) doi:10.1017/rsm.2025.14
 .
 
-"><meta property="og:description" content="This package implements the meta-analysis of diagnostic test accuracy (DTA) studies and prognostic studies
+
+This package implements the likelihood-based sensitivity analysis for publication bias
+on the summary receiver operating characteristic (SROC) curve and the area under the SROC curve (SAUC)
+in meta-analysis of diagnostic test accuracy, see Zhou et al. (2023) doi:10.1002/sim.9643
+.
+It also provides the sensitivity analysis on the time-dependent SROC curve in meta-analysis of prognostic studies,
+where the time-dependent sensitivity and specificity are reconstructed from the published survival probabilities,
+see Combescure et al. (2016) doi:10.1177/0962280212464542
+."><meta property="og:description" content="This package implements the meta-analysis of diagnostic test accuracy (DTA) studies and prognostic studies
 by the summary receiver operating characteristic (SROC) curve and the area under the SROC curve (SAUC),
 together with the likelihood-based sensitivity analysis for publication bias.
 Diagnostic studies: the bivariate random-effects model of the logit-transformed
@@ -33,7 +41,15 @@ Prognostic studies: the time-dependent SROC curve and SAUC, where the time-depen
   (Zhou et al., 2025) doi:10.1017/rsm.2025.14
 .
 
-"></head><body>
+
+This package implements the likelihood-based sensitivity analysis for publication bias
+on the summary receiver operating characteristic (SROC) curve and the area under the SROC curve (SAUC)
+in meta-analysis of diagnostic test accuracy, see Zhou et al. (2023) doi:10.1002/sim.9643
+.
+It also provides the sensitivity analysis on the time-dependent SROC curve in meta-analysis of prognostic studies,
+where the time-dependent sensitivity and specificity are reconstructed from the published survival probabilities,
+see Combescure et al. (2016) doi:10.1177/0962280212464542
+."></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -41,7 +57,7 @@ Prognostic studies: the time-dependent SROC curve and SAUC, where the time-depen
 
     <a class="navbar-brand me-2" href="../index.html">DiagProgMeta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +79,7 @@ Prognostic studies: the time-dependent SROC curve and SAUC, where the time-depen
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Meta-Analysis of Diagnostic and Prognostic Studies with Sensitivity Analysis for Publication Bias on the SROC and Time-Dependent SROC Curves</h1>
-      <small class="dont-index">Source: <a href="https://github.com/kusuri26/DiagProgMeta/blob/HEAD/R/DiagProgMeta-package.R" class="external-link"><code>R/DiagProgMeta-package.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/kusuri26/DiagProgMeta/blob/HEAD/R/DiagProgMeta-package.R" class="external-link"><code>R/DiagProgMeta-package.R</code></a>, <a href="https://github.com/kusuri26/DiagProgMeta/blob/HEAD/R/srocsa-package.R" class="external-link"><code>R/srocsa-package.R</code></a></small>
       <div class="d-none name"><code>DiagProgMeta-package.Rd</code></div>
     </div>
 
@@ -83,9 +99,29 @@ together with the likelihood-based sensitivity analysis for publication bias.</p
   and the sensitivity analysis for publication bias on the time-dependent SROC curve and SAUC
   (Zhou et al., 2025) <a href="https://doi.org/10.1017/rsm.2025.14" class="external-link">doi:10.1017/rsm.2025.14</a>
 .</p></li>
+</ul><p>This package implements the likelihood-based sensitivity analysis for publication bias
+on the summary receiver operating characteristic (SROC) curve and the area under the SROC curve (SAUC)
+in meta-analysis of diagnostic test accuracy, see Zhou et al. (2023) <a href="https://doi.org/10.1002/sim.9643" class="external-link">doi:10.1002/sim.9643</a>
+.
+It also provides the sensitivity analysis on the time-dependent SROC curve in meta-analysis of prognostic studies,
+where the time-dependent sensitivity and specificity are reconstructed from the published survival probabilities,
+see Combescure et al. (2016) <a href="https://doi.org/10.1177/0962280212464542" class="external-link">doi:10.1177/0962280212464542</a>
+.</p>
+    </div>
+
+
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Main functions:</p><ul><li><p><code><a href="srocsa.t.html">srocsa.t</a></code> Sensitivity analysis for publication bias on the SROC curve and SAUC.</p></li>
+<li><p><code><a href="tsrocsa.lrt.html">tsrocsa.lrt</a></code> Sensitivity analysis for publication bias on the time-dependent SROC curve and SAUC.</p></li>
+<li><p><code><a href="sroc.html">sroc</a></code> Bivariate random-effects model for the SROC curve without publication bias.</p></li>
+<li><p><code><a href="tsroc.html">tsroc</a></code> Time-dependent SROC curve without publication bias.</p></li>
+<li><p><code><a href="sauc.html">sauc</a></code> SAUC and its confidence interval.</p></li>
+</ul><p>Results output functions:</p><ul><li><p><code><a href="print.srocsa.html">print.srocsa</a></code> Print the main results from 'srocsa' objects.</p></li>
+<li><p><code><a href="summary.srocsa.html">summary.srocsa</a></code> Summarize the results from 'srocsa' objects.</p></li>
+<li><p><code><a href="plot.srocsa.html">plot.srocsa</a></code> Plot the SROC curves from 'srocsa' objects.</p></li>
+</ul><p>Example data:</p><ul><li><p><code><a href="IVD.html">IVD</a></code>, <code><a href="CD64.html">CD64</a></code> Meta-analyses of diagnostic studies.</p></li>
 </ul></div>
-
-
     <div class="section level2">
     <h2 id="fitting-functions">Fitting functions<a class="anchor" aria-label="anchor" href="#fitting-functions"></a></h2>
 

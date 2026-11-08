@@ -120,6 +120,29 @@ s$fits[[1]]$coef
 #> tau2  0.8261895 0.1167857  0.6262653 1.0899360
 #> rho  -0.4244263 0.2363535 -0.7690938 0.1114831
 
-## for hattori.tsroc(), one element of s$fits for each time point:
-## s <- summary(fit2); s$fits[["t = 36"]]$coef
+## for hattori.tsroc(), one element of s$fits for each time point
+data(Ki67)
+Ki67_HR <- Ki67$HR
+Ki67_HR$lnHR     <- log(Ki67_HR$HR)
+Ki67_HR$lnHR.var <- ((log(Ki67_HR$ci.up) - log(Ki67_HR$ci.low)) / (2 * qnorm(0.975)))^2
+fit2 <- hattori.tsroc(
+  time.points = c(24, 36, 60),
+  study.os = study,
+  time.os = t, n1.os = n1, n0.os = n0,
+  s1.os = s1, s0.os = s0,
+  data.os = Ki67$OS,
+  study.lnhr = study, lnhr = lnHR, var.lnHR = lnHR.var,
+  data.lnhr = Ki67_HR,
+  time.med = mct_mo, n1.med = n1, n0.med = n0,
+  s1.med = s1_mct, s0.med = s0_mct,
+  data.mt = Ki67$MT
+)   
+s2 <- summary(fit2)
+s2$fits[["t = 36"]]$coef
+#>        Estimate         SE       lower       upper
+#> mu1   0.6731155 0.18530620  0.30992207 1.036309012
+#> mu2   0.2837232 0.11469250  0.05893001 0.508516337
+#> tau1  0.6556385 0.20886375  0.35115678 1.224130751
+#> tau2  0.5121485 0.09521945  0.35574533 0.737314255
+#> rho  -0.8772330 0.16089307 -0.99156170 0.004680657
 ```

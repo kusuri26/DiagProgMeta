@@ -23,7 +23,7 @@ each marginal selection probability \(p\) in senp.p."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">DiagProgMeta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -551,59 +551,9 @@ time-dependent summary receiver operating characteristics.
 <span class="r-in"><span>  senp.p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.8</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  parallel.ncores <span class="op">=</span> <span class="fl">2L</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in checkForRemoteErrors(val):</span> 2 nodes produced errors; first error: could not find function "convert.dt.tsroc"</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">fitp</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ==================================================</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model optimization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of studies : 23 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> time              : 36 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Optimizer         : 1 1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * 1 indicates converged</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ==================================================</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> SAUC Estimates</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Marginal p    SAUC      SE   CI.low   CI.up</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p = 1        0.651   0.020    0.610   0.690</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p = 0.8      0.646   0.021    0.605   0.686</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ==================================================</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Parameter Estimates (SE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------------------------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Marginal p           mu_se           mu_sp          tau_se          tau_sp              rho            beta       alpha</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------------------------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p = 1        0.673 (0.185)   0.284 (0.115)   0.656 (0.209)   0.512 (0.095)   -0.877 (0.161)               -           -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p = 0.8      0.680 (0.192)   0.258 (0.117)   0.680 (0.214)   0.509 (0.096)   -0.882 (0.155)   0.399 (0.369)   0.308 (-)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ==================================================</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model optimization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of studies : 21 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> time              : 60 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Optimizer         : 1 1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * 1 indicates converged</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ==================================================</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> SAUC Estimates</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Marginal p    SAUC      SE   CI.low   CI.up</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p = 1        0.647   0.018    0.610   0.682</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p = 0.8      0.643   0.019    0.604   0.680</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ==================================================</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Parameter Estimates (SE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------------------------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Marginal p           mu_se           mu_sp          tau_se          tau_sp              rho            beta       alpha</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------------------------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p = 1        0.532 (0.133)   0.353 (0.135)   0.430 (0.153)   0.577 (0.110)   -0.928 (0.124)               -           -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p = 0.8      0.524 (0.138)   0.330 (0.138)   0.457 (0.154)   0.572 (0.110)   -0.909 (0.126)   0.254 (0.544)   0.434 (-)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'fitp' not found</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

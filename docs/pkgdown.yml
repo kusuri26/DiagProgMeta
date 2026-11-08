@@ -2,7 +2,7 @@ pandoc: '3.10'
 pkgdown: 2.2.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2026-10-16T11:05Z
+last_built: 2026-11-08T03:50Z
 urls:
   reference: https://https://kusuri26.github.io/DiagProgMeta/reference
   article: https://https://kusuri26.github.io/DiagProgMeta/articles

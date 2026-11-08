@@ -4,8 +4,7 @@
 
 - [`CD64`](reference/CD64.md) : Meta-analysis of diagnostic studies:
   CD64 data
-- [`DiagProgMeta`](reference/DiagProgMeta-package.md)
-  [`DiagProgMeta-package`](reference/DiagProgMeta-package.md) :
+- [`DiagProgMeta-package`](reference/DiagProgMeta-package.md) :
   Meta-Analysis of Diagnostic and Prognostic Studies with Sensitivity
   Analysis for Publication Bias on the SROC and Time-Dependent SROC
   Curves
@@ -31,11 +30,15 @@
   random-effects model (Reitsma's model) estimating the SROC curve
   without publication bias
 - [`sauc()`](reference/sauc.md) : SAUC and its confidence interval
+- [`sroc()`](reference/sroc.md) : Bivariate random-effects model for the
+  SROC curve without publication bias
 - [`srocsa.t()`](reference/srocsa.t.md) : Sensitivity analysis for
   publication bias on the SROC curve
 - [`summary(`*`<sroc>`*`)`](reference/summary.sroc.md) : Summary of
   'sroc' objects
 - [`summary(`*`<srocsa>`*`)`](reference/summary.srocsa.md) : Summary
   method for 'srocsa' objects
+- [`tsroc()`](reference/tsroc.md) : Time-dependent SROC curve without
+  publication bias
 - [`tsrocsa.lrt()`](reference/tsrocsa.lrt.md) : Sensitivity analysis for
   publication bias on the time-dependent SROC curve

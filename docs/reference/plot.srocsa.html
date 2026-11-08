@@ -25,7 +25,7 @@ the color indicates the time point and the line type indicates \(p\)."></head><b
 
     <a class="navbar-brand me-2" href="../index.html">DiagProgMeta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -264,11 +264,32 @@ i.e., the parameters of the logit-transformed sensitivity and specificity.</p>
 <span class="r-plt img"><img src="plot.srocsa-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="co">## time-dependent results (see ?tsrocsa.lrt for fit2)</span></span></span>
-<span class="r-in"><span><span class="co">## plot(fit2)                           # one plot per time point; press &lt;Return&gt; for the next</span></span></span>
-<span class="r-in"><span><span class="co">## plot(fit2, time = 60)                # one time point</span></span></span>
-<span class="r-in"><span><span class="co">## plot(fit2, overlay = TRUE)           # all time points in one panel (color: time, line type: p)</span></span></span>
-<span class="r-in"><span><span class="co">## plot(fit2, overlay = TRUE, p = 0.8)  # all time points for one p</span></span></span>
+<span class="r-in"><span><span class="co">## time-dependent results</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Ki67</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">Ki67_HR</span> <span class="op">&lt;-</span> <span class="va">Ki67</span><span class="op">$</span><span class="va">HR</span></span></span>
+<span class="r-in"><span><span class="va">Ki67_HR</span><span class="op">$</span><span class="va">lnHR</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">Ki67_HR</span><span class="op">$</span><span class="va">HR</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">Ki67_HR</span><span class="op">$</span><span class="va">lnHR.var</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">Ki67_HR</span><span class="op">$</span><span class="va">ci.up</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">Ki67_HR</span><span class="op">$</span><span class="va">ci.low</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span></span></span>
+<span class="r-in"><span><span class="va">fit2</span> <span class="op">&lt;-</span> <span class="fu"><a href="tsrocsa.lrt.html">tsrocsa.lrt</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  time.points <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">36</span>, <span class="fl">60</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  study.os <span class="op">=</span> <span class="va">study</span>,</span></span>
+<span class="r-in"><span>  time.os <span class="op">=</span> <span class="va">t</span>, n1.os <span class="op">=</span> <span class="va">n1</span>, n0.os <span class="op">=</span> <span class="va">n0</span>,</span></span>
+<span class="r-in"><span>  s1.os <span class="op">=</span> <span class="va">s1</span>, s0.os <span class="op">=</span> <span class="va">s0</span>,</span></span>
+<span class="r-in"><span>  data.os <span class="op">=</span> <span class="va">Ki67</span><span class="op">$</span><span class="va">OS</span>,</span></span>
+<span class="r-in"><span>  study.lnhr <span class="op">=</span> <span class="va">study</span>, lnhr <span class="op">=</span> <span class="va">lnHR</span>, var.lnHR <span class="op">=</span> <span class="va">lnHR.var</span>,</span></span>
+<span class="r-in"><span>  data.lnhr <span class="op">=</span> <span class="va">Ki67_HR</span>,</span></span>
+<span class="r-in"><span>  time.med <span class="op">=</span> <span class="va">mct_mo</span>, n1.med <span class="op">=</span> <span class="va">n1</span>, n0.med <span class="op">=</span> <span class="va">n0</span>,</span></span>
+<span class="r-in"><span>  s1.med <span class="op">=</span> <span class="va">s1_mct</span>, s0.med <span class="op">=</span> <span class="va">s0_mct</span>,</span></span>
+<span class="r-in"><span>  data.mt <span class="op">=</span> <span class="va">Ki67</span><span class="op">$</span><span class="va">MT</span>,</span></span>
+<span class="r-in"><span>  senp.p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.8</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">fit2</span>, ask <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>              <span class="co"># one plot per time point, no prompt</span></span></span>
+<span class="r-plt img"><img src="plot.srocsa-4.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="plot.srocsa-5.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">fit2</span>, time <span class="op">=</span> <span class="fl">60</span><span class="op">)</span>                <span class="co"># one time point</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">fit2</span>, overlay <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>           <span class="co"># all time points in one panel (color: time, line type: p)</span></span></span>
+<span class="r-plt img"><img src="plot.srocsa-6.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">fit2</span>, overlay <span class="op">=</span> <span class="cn">TRUE</span>, p <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span>  <span class="co"># all time points for one p</span></span></span>
+<span class="r-plt img"><img src="plot.srocsa-7.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
