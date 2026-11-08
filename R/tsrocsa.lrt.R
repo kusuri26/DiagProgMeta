@@ -154,6 +154,7 @@
 #' }
 #'
 #'
+#'\donttest{
 #' ## Using paralell computing
 #' fitp <- tsrocsa.lrt(
 #'   time.points = c(36, 60),
@@ -170,6 +171,7 @@
 #'   parallel.ncores = 2L
 #' )
 #' print(fitp)
+#'}
 #'
 #' @seealso
 #' \code{\link{hattori.tsroc}},

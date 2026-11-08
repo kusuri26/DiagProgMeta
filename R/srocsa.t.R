@@ -115,10 +115,17 @@
 #'
 #' ## fix c1^2 = 0.5
 #' fit2 <- srocsa.t(TP = TP, FN = FN, TN = TN, FP = FP, data = IVD,
-#' sa.p = c(1, 0.8, 0.6), c11 = 0.5, parallel.ncores = 2L)
+#' sa.p = c(1, 0.8, 0.6), c11 = 0.5)
 #' print(fit2)
 #' summary(fit2)
 #' plot(fit2)
+#'
+#' \donttest{
+#' ## parallel computation
+#' fit2p <- srocsa.t(TP = TP, FN = FN, TN = TN, FP = FP, data = IVD,
+#' sa.p = c(1, 0.8, 0.6), c11 = 0.5, parallel.ncores = 2L)
+#' print(fit2p)
+#' }
 #'
 #' ## continuity correction for all the studies
 #' fit3 <- srocsa.t(TP = TP, FN = FN, TN = TN, FP = FP, data = IVD, sa.p = 0.8, cc.type = "all")

@@ -193,6 +193,7 @@ if (interactive()) plot(fit, add.study = TRUE, study.size = "precision")
 }
 
 
+\donttest{
 ## Using paralell computing
 fitp <- tsrocsa.lrt(
   time.points = c(36, 60),
@@ -209,6 +210,7 @@ fitp <- tsrocsa.lrt(
   parallel.ncores = 2L
 )
 print(fitp)
+}
 
 }
 \references{
