@@ -110,8 +110,13 @@
 #' data(IVD)
 #'
 #' ## estimate c1^2
-#' fit1 <- srocsa.t(TP = TP, FN = FN, TN = TN, FP = FP, data = IVD, sa.p = c(1, 0.8, 0.6))
+#' fit1 <- srocsa.t(TP = TP, FN = FN, TN = TN, FP = FP, data = IVD, sa.p = c(1, 0.8))
 #' fit1
+#'
+#' \donttest{
+#' ## three selection probabilities
+#' fit1b <- srocsa.t(TP = TP, FN = FN, TN = TN, FP = FP, data = IVD, sa.p = c(1, 0.8, 0.6))
+#' fit1b
 #'
 #' ## fix c1^2 = 0.5
 #' fit2 <- srocsa.t(TP = TP, FN = FN, TN = TN, FP = FP, data = IVD,
@@ -120,16 +125,15 @@
 #' summary(fit2)
 #' plot(fit2)
 #'
-#' \donttest{
+#' ## continuity correction for all the studies
+#' fit3 <- srocsa.t(TP = TP, FN = FN, TN = TN, FP = FP, data = IVD, sa.p = 0.8, cc.type = "all")
+#' fit3
+#'
 #' ## parallel computation
 #' fit2p <- srocsa.t(TP = TP, FN = FN, TN = TN, FP = FP, data = IVD,
 #' sa.p = c(1, 0.8, 0.6), c11 = 0.5, parallel.ncores = 2L)
 #' print(fit2p)
 #' }
-#'
-#' ## continuity correction for all the studies
-#' fit3 <- srocsa.t(TP = TP, FN = FN, TN = TN, FP = FP, data = IVD, sa.p = 0.8, cc.type = "all")
-#' fit3
 #'
 #' @seealso
 #' \code{\link{print.srocsa}},

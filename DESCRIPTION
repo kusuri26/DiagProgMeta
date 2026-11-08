@@ -31,7 +31,7 @@ Description: Provides methods for meta-analysis of diagnostic test accuracy
     operating characteristic (SROC) curve for diagnostic test accuracy and
     the time-dependent SROC curve for prognostic studies. It also provides
     likelihood-based sensitivity analyses to assess the potential impact of
-    publication bias on these curves.The methods are described in Hattori
+    publication bias on these curves. The methods are described in Hattori
     and Zhou (2016) <doi:10.1002/sim.7029>, Reitsma et al. (2005)
     <doi:10.1016/j.jclinepi.2005.02.022>, Zhou et al. (2023)
     <doi:10.1002/sim.9643>, and Zhou et al. (2025)
