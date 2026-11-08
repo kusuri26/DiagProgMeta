@@ -1,4 +1,4 @@
-#' @title Meta-Analysis of Diagnostic and Prognostic Studies with Sensitivity Analysis for Publication Bias on the SROC and Time-Dependent SROC Curves
+#' @title Diagnostic and Prognostic Meta-Analysis with Sensitivity Analysis
 #'
 #' @description
 #' This package implements the meta-analysis of diagnostic test accuracy (DTA) studies and prognostic studies

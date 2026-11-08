@@ -197,9 +197,12 @@ dt.os = merge(dt.os, dt.lnhr, all.x = TRUE)
 	# v0 <- dt.ost$km.v0
 	n  <- dt.ost$n1 + dt.ost$n0
 	
-	dt.ost$v_sen <- with(dt.ost, g_senx^2 * inv.q1 * km.v1 + g_seny^2 * inv.q0 * km.v0 + (g_senz - g_senw)^2 * q1.q0) / n
-	dt.ost$v_spe <- with(dt.ost, g_spex^2 * inv.q1 * km.v1 + g_spey^2 * inv.q0 * km.v0 + (g_spez - g_spew)^2 * q1.q0) / n
-	dt.ost$v_senspe  <- with(dt.ost, g_senx * g_spex * inv.q1 * km.v1 + g_seny * g_spey * inv.q0 * km.v0 + (g_senz - g_senw) * (g_spez - g_spew) * q1.q0) / n
+	km.v1 <- dt.ost$km.v1   # Greenwood-type variances (columns added by merge above)
+	km.v0 <- dt.ost$km.v0
+
+	dt.ost$v_sen     <- (g_senx^2 * inv.q1 * km.v1 + g_seny^2 * inv.q0 * km.v0 + (g_senz - g_senw)^2 * q1.q0) / n
+	dt.ost$v_spe     <- (g_spex^2 * inv.q1 * km.v1 + g_spey^2 * inv.q0 * km.v0 + (g_spez - g_spew)^2 * q1.q0) / n
+	dt.ost$v_senspe  <- (g_senx * g_spex * inv.q1 * km.v1 + g_seny * g_spey * inv.q0 * km.v0 + (g_senz - g_senw) * (g_spez - g_spew) * q1.q0) / n
 	
 	##
 	## 2.4. FOR STUDY I, CALCULATE: cov(R1, W), cov(R0, W)   ----
@@ -245,10 +248,13 @@ dt.os = merge(dt.os, dt.lnhr, all.x = TRUE)
 	
 	dt.ost <- merge(dt.ost, int.mat.comp, by = "study" , all.x = TRUE)
 	
-	dt.ost$v_senlnHR <- with( dt.ost, g_senx * S1 * inv.q1 * inv.B * (log(S1) - int1) + g_seny * S0 * inv.q0 * inv.B * (log(S0) - int0) ) /n 
-	dt.ost$v_spelnHR <- with( dt.ost, g_spex * S1 * inv.q1 * inv.B * (log(S1) - int1) + g_spey * S0 * inv.q0 * inv.B * (log(S0) - int0) ) /n
-	
-	dt.ost <-  subset(dt.ost, select = -c(km.v1, km.v0, int1, int0) )
+	int1 <- dt.ost$int1   # columns added by merge above
+	int0 <- dt.ost$int0
+
+	dt.ost$v_senlnHR <- (g_senx * S1 * inv.q1 * inv.B * (log(S1) - int1) + g_seny * S0 * inv.q0 * inv.B * (log(S0) - int0)) / n
+	dt.ost$v_spelnHR <- (g_spex * S1 * inv.q1 * inv.B * (log(S1) - int1) + g_spey * S0 * inv.q0 * inv.B * (log(S0) - int0)) / n
+
+	dt.ost <- dt.ost[, setdiff(names(dt.ost), c("km.v1", "km.v0", "int1", "int0")), drop = FALSE]
 	
 	return(dt.ost)
 	

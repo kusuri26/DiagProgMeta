@@ -1,7 +1,7 @@
 Package: DiagProgMeta
 Type: Package
-Title: SROC Meta-Analysis with Publication Bias Sensitivity Analysis
-Version: 0.1.0
+Title: Diagnostic and Prognostic Meta-Analysis with Sensitivity Analysis
+Version: 0.1.1
 Author: Ryota Kinugawa [aut, ctb], Kota Nakaike [aut, ctb], Yamato Hashimoto [aut, ctb], Yi Zhou [aut, cre] (<https://orcid.org/0000-0001-9254-3245>)
 Maintainer: Yi Zhou <zhouy@people.kobe-u.ac.jp>
 Authors@R: c(
